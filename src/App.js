@@ -2,13 +2,14 @@ import React from 'react';
 import './App.css';
 
 import TreeVisualization from './TreeVisualization';
+import CustomNavbar from './AppNavbar';
 
 function App() {
   
   return (
     <div className="App">
   
-      <h1>visualization using functional component</h1>
+      <CustomNavbar/>
       <TreeVisualization />
     </div>
   );
