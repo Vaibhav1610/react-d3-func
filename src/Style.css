@@ -1,11 +1,14 @@
 .tooltip {
     position: absolute;
-    background-color: white;
     border: 1px solid rgb(13, 14, 32);
-    padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     z-index: 999;
+    width:fit-content; /* Width adjusts to fit content */
+    max-width: 50%; /* Ensure it doesn't exceed parent's width */
+    height: auto; /* Height adjusts to content */
+    padding: 10px;
+    word-wrap: break-word;
   }
   
   /* Styling for the text inside the tooltip */
@@ -34,15 +37,15 @@
     fill: orange; /* Change fill color on hover */
     stroke: #e0e0e0; /* Change border color on hover */
   }
-
-  .dynamic-div {
-    background-color: lightgray;
-    width:fit-content; /* Width adjusts to fit content */
-    max-width: 50%; /* Ensure it doesn't exceed parent's width */
-    height: auto; /* Height adjusts to content */
-    padding: 10px;
-    word-wrap: break-word;
-    transition: transform 0.3s ease-in-out;
+  .link{
+    fill: none;
+    stroke-width: 2px;
+    stroke: silver;
   }
+
+  /* .dynamic-div {
+    background-color: lightgray;
+    
+  } */
 
   

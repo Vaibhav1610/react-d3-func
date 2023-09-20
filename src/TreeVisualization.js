@@ -7,7 +7,7 @@ const TreeVisualization = () => {
 
   const [tooltipContent, setTooltipContent] = useState("");
   const [tooltipPosition, setTooltipPosition] = useState({ left: 0, top: 0 });
-  
+
   useEffect(() => {
     drawTree();
   });
@@ -20,7 +20,7 @@ const TreeVisualization = () => {
       info3: node.data.info3,
       info4: node.data.info4,
     });
-    setTooltipPosition({ left: node.y + 200, top: node.x });
+    setTooltipPosition({ left: node.y, top: node.x });
   };
 
   const hideTooltip = () => {
@@ -42,11 +42,20 @@ const TreeVisualization = () => {
           info3: "someinfo",
           info4: "someinfo2",
           children: [
-            { name: "Leaf 1", info1: "someinfo", info2: "someinfo2",info3: "someinfo",
-            info4: "someinfo2" },
-            { name: "Leaf 2", info1: "someinfo", info2: "someinfo2" ,
-            info3: "someinfo",
-            info4: "someinfo2"},
+            {
+              name: "Leaf 1",
+              info1: "someinfo",
+              info2: "someinfo2",
+              info3: "someinfo",
+              info4: "someinfo2",
+            },
+            {
+              name: "Leaf 2",
+              info1: "someinfo",
+              info2: "someinfo2",
+              info3: "someinfo",
+              info4: "someinfo2",
+            },
           ],
         },
         {
@@ -64,8 +73,13 @@ const TreeVisualization = () => {
               info2:
                 "someinfo2qwqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
             },
-            { name: "Leaf 4", info1: "someinfo2", info2: "someinfo2",info3: "someinfo",
-            info4: "someinfo2" },
+            {
+              name: "Leaf 4",
+              info1: "someinfo2",
+              info2: "someinfo2",
+              info3: "someinfo",
+              info4: "someinfo2",
+            },
           ],
         },
       ],
@@ -129,14 +143,14 @@ const TreeVisualization = () => {
   };
 
   return (
-    <div>
-      <svg className="tree-container" ref={svgRef}></svg>
+    <div className="tree-container">
+      <svg ref={svgRef}></svg>
       {tooltipContent && (
         <div
-          className={`tooltip dynamic-div ${tooltipContent ? "" : "tooltip-hidden"}`}
+          className={`tooltip ${tooltipContent ? "" : "tooltip-hidden"}`}
           style={{
             left: tooltipPosition.left + "px",
-            top: tooltipPosition.top + "px"
+            top: tooltipPosition.top + "px",
           }}
         >
           <div>
@@ -144,20 +158,14 @@ const TreeVisualization = () => {
             <hr />
             <p>info1:{tooltipContent.info1}</p>
             <hr />
-            <p>
-              info2:{tooltipContent.info2}
-            </p>
+            <p>info2:{tooltipContent.info2}</p>
             <hr />
-            <p>
-              info3:{tooltipContent.info3}
-            </p>
+            <p>info3:{tooltipContent.info3}</p>
             <hr />
-            <p>
-              info4:{tooltipContent.info4}
-            </p>
+            <p>info4:{tooltipContent.info4}</p>
             <hr />
           </div>
-          <div >
+          <div>
             <button className="button" onClick={hideTooltip}>
               close
             </button>
